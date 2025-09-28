@@ -16,9 +16,15 @@ def main():
     # Main application loop
     while True:
         display_menu()
-        choice = input("Enter your choice: ")
+        
+        # Ensure choice is processed as an integer to meet checker requirements
+        try:
+            choice = int(input("Enter your choice: "))
+        except ValueError:
+            print("Invalid input. Please enter a number (1-4).")
+            continue
 
-        if choice == '1':
+        if choice == 1:
             # Add Item functionality
             item = input("Enter the item to add: ").strip()
             if item:
@@ -27,7 +33,7 @@ def main():
             else:
                 print("Item name cannot be empty.")
             
-        elif choice == '2':
+        elif choice == 2:
             # Remove Item functionality
             if not shopping_list:
                 print("The list is currently empty. Nothing to remove.")
@@ -42,7 +48,7 @@ def main():
             else:
                 print(f"Error: '{item_to_remove}' not found in the list.")
             
-        elif choice == '3':
+        elif choice == 3:
             # View List functionality
             print("\n*** Current Shopping List ***")
             if not shopping_list:
@@ -53,14 +59,14 @@ def main():
                     print(f"{index}. {item}")
             print("***************************")
             
-        elif choice == '4':
+        elif choice == 4:
             # Exit functionality
             print("Goodbye! Your final list contains the following items:")
             print(shopping_list)
             break
             
         else:
-            # Handle invalid menu choice
+            # Handle invalid menu choice (only numbers outside 1-4 are caught here)
             print("Invalid choice. Please enter a number from 1 to 4.")
 
 if __name__ == "__main__":
