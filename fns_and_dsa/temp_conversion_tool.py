@@ -3,9 +3,9 @@
 # ============================
 # Global Conversion Factors
 # ============================
-c = 0
+s = 0
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
-CELSIUS_TO_FAHRENHEIT_FACTOR = c * 9 / 5
+CELSIUS_TO_FAHRENHEIT_FACTOR = s * 9 / 5
 FREEZING_POINT_F = 32  # offset used in conversions
 
 
