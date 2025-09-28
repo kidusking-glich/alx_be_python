@@ -8,7 +8,7 @@ def perform_operation(num1, num2, operation):
     elif operation == "divide":
         if num2 > 0:
             result = num1 / num2
-        else:
+        elif num2 == 0:
             print("We can't divide by zero(0)")
     return result
 
