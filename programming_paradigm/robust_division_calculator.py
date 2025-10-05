@@ -7,9 +7,13 @@ def safe_divide(numerator, denominator):
         return f"The result of the division is {result}"
         
 
-    except ZeroDivisionError:
-        print("Error: Cannot divide by zero.")
-    except ValueError:
-        return "Error: Please enter number value only."
     
-safe_divide("ah", 5)
+    except ValueError:
+        return "Error: Please enter numeric values only."
+    except ZeroDivisionError:
+        return "Error: Cannot divide by zero."
+    except Exception as e:
+        # Catch any other unexpected errors (good practice)
+        return f"An unexpected error occurred: {e}"
+
+safe_divide("he", 10)
