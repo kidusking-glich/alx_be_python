@@ -15,24 +15,24 @@ class BankAccount:
         
     def display_balance(self):
         print(f"Current Balance: ${self._account_balance:.2f}")
-    def safe_divide(numerator, denominator):
-        try:
-            # Convert to float, handle non-numeric input
-            num = float(numerator)
-            den = float(denominator)
-            
-            # Handle division by zero
-            if den == 0:
-                return "Error: Cannot divide by zero."
-            
-            # Perform division
-            result = num / den
-            return f"The result of the division is {result}"
+def safe_divide(numerator, denominator):
+    try:
+        # Convert to float, handle non-numeric input
+        num = float(numerator)
+        den = float(denominator)
         
-        except ValueError:
-            return "Error: Please enter numeric values only."
-        except ZeroDivisionError:
-            return "Error: Cannot divide by zero."  # Redundant but explicit
+        # Handle division by zero
+        if den == 0:
+            return "Error: Cannot divide by zero."
+        
+        # Perform division
+        result = num / den
+        return f"The result of the division is {result}"
+    
+    except ValueError:
+        return "Error: Please enter numeric values only."
+    except ZeroDivisionError:
+        return "Error: Cannot divide by zero."  # Redundant but explicit
     
 
         
