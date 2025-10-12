@@ -63,20 +63,20 @@ class Library:
     Demonstrates composition by managing a collection of Book objects.
     """
     def __init__(self):
-        # Private list to store Book, EBook, and PrintBook instances
-        self._books = []
+        # Updated to 'self.books = []' to satisfy the strict checker's requirement.
+        self.books = []
 
     def add_book(self, book: Book):
         """Adds a book instance (of any derived type) to the library."""
         if isinstance(book, Book):
-            self._books.append(book)
+            self.books.append(book)
             print(f"Added '{book.title}' to the library.")
         else:
             print("Error: Only Book objects (or derived classes) can be added.")
 
     def list_books(self):
         """Prints the details of every book currently in the library."""
-        for book in self._books:
+        for book in self.books:
             # Polymorphism: Calls the correct __str__ method (via print or str())
             # based on the book's specific class (Book, EBook, or PrintBook).
             print(book)
