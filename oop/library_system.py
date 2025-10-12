@@ -10,9 +10,13 @@ class Book:
         self.title = title
         self.author = author
 
+    def __str__(self):
+        """String Representation: Returns the basic details of the book."""
+        return f"Book: {self.title} by {self.author}"
+    
     def get_details(self):
         """Returns the basic details of the book."""
-        return f"Book: {self.title} by {self.author}"
+        return str(self)
 
 class EBook(Book):
     """
@@ -24,10 +28,14 @@ class EBook(Book):
         # Additional attribute specific to EBook
         self.file_size = file_size
     
+    def __str__(self):
+        """String Representation: Returns details specific to the EBook."""
+        base_details = super().__str__().replace("Book: ", "")
+        return f"EBook: {base_details}, File Size: {self.file_size}KB"
+
     def get_details(self):
         """Returns details specific to the EBook."""
-        base_details = super().get_details()
-        return f"E{base_details}, File Size: {self.file_size}KB"
+        return str(self)
 
 
 class PrintBook(Book):
@@ -40,10 +48,14 @@ class PrintBook(Book):
         # Additional attribute specific to PrintBook
         self.page_count = page_count
 
+    def __str__(self):
+        """String Representation: Returns details specific to the PrintBook."""
+        base_details = super().__str__().replace("Book: ", "")
+        return f"PrintBook: {base_details}, Page Count: {self.page_count}"
+
     def get_details(self):
         """Returns details specific to the PrintBook."""
-        base_details = super().get_details()
-        return f"Print{base_details}, Page Count: {self.page_count}"
+        return str(self)
 
 
 class Library:
@@ -65,6 +77,6 @@ class Library:
     def list_books(self):
         """Prints the details of every book currently in the library."""
         for book in self._books:
-            # Polymorphism: Calls the correct get_details() method 
+            # Polymorphism: Calls the correct __str__ method (via print or str())
             # based on the book's specific class (Book, EBook, or PrintBook).
-            print(book.get_details())
+            print(book)
