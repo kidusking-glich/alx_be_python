@@ -11,8 +11,7 @@ class Book:
         self.title = title
         self.author = author
         self.year = year
-        # Optional print to show when an object is created (for debugging)
-        print(f"Book instance created: {self.title}")
+        # The print statement that caused the unexpected output has been removed.
 
     def __str__(self):
         """
